@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-Do List</title>
+    <style>
+      /* CSS for styling the to-do list */
+      body {
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        text-align: center;
+      }
+      #todo-list {
+        width: 50%;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+      .task {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+      .task input[type="checkbox"] {
+        margin-right: 10px;
+      }
+      .task span {
+        text-decoration: line-through;
+      }
+      #add-task-form {
+        margin-top: 20px;
+      }
+      #add-task-form input[type="text"] {
+        width: 60%;
+        padding: 10px;
+        margin-right: 10px;
+      }
+      #add-task-form input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>To-Do List</h1>
+    <div id="todo-list">
+    </div>
+    <form id="add-task-form">
+      <input type="text" id="task-name" placeholder="Enter task name...">
+      <input type="submit" value="Add Task">
+    </form>
+    <script>
+      // JavaScript for adding and striking through tasks
+      var todoList = document.getElementById("todo-list");
+      var addTaskForm = document.getElementById("add-task-form");
+
+      addTaskForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        var taskName = document.getElementById("task-name").value;
+        if (!taskName) {
+          return;
+        }
+        var taskHTML = `
+          <div class="task">
+            <input type="checkbox" id="task">
+            <label for="task">${taskName}</label>
+          </div>
+        `;
+        todoList.insertAdjacentHTML("beforeend", taskHTML);
+        document.getElementById("task-name").value = "";
+      });
+
+      todoList.addEventListener("click", function(event) {
+        if (event.target.type === "checkbox") {
+          var task = event.target.parentElement;
+          var taskName = task.querySelector("label");
+          if (event.target.checked) {
+            taskName.style.textDecoration = "line-through";
+          } else {
+            taskName.style.textDecoration = "none";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
