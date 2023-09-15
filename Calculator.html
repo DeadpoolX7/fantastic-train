@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .calc{
+            width: 300px;
+            height: 500px;
+            margin: auto;
+            padding: 15px;
+            border: 5px ridge skyblue;
+            border-radius: 5px;
+            background-color: darkslategray;
+            box-shadow: 15px 12px aquamarine;
+        }
+        #clear{
+            width: 270px;
+            background-color: red;
+            color:white;
+        }
+        input{
+            width: 30px;
+            margin: 5px;
+            padding: 26px;
+            font-weight: bold;
+            font-size: 15px;
+            background-color:brown ;
+            color:wheat;
+          cursor: pointer;
+          border-radius: 20px;
+        }
+        #answer{
+            width:235px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calc">
+        <form name="form1">
+        <input type="text" id="answer" name="calans" >
+        <br>
+        <input type="button" value="1"onclick="form1.calans.value+='1' " >
+        <input type="button" value="2"onclick="form1.calans.value+='2'">
+        <input type="button" value="3" onclick="form1.calans.value+='3'">
+        <input type="button" value="+" onclick="form1.calans.value+='+'">
+        <br>
+        <input type="button" value="4"onclick="form1.calans.value+= '4'">
+        <input type="button" value="5" onclick="form1.calans.value+='5'">
+        <input type="button" value="6" onclick="form1.calans.value+='6'">
+        <input type="button" value="-"onclick="form1.calans.value+='-'">
+        <br>
+        <input type="button" value="7"onclick="form1.calans.value+='7'">
+        <input type="button" value="8" onclick="form1.calans.value+='8'">
+        <input type="button" value="9" onclick="form1.calans.value+='9'">
+        <input type="button" value="*"onclick="form1.calans.value+='*'">
+        <br>
+        <input type="button" value="." onclick="form1.calans.value+='.'">
+        <input type="button" value="0" onclick="form1.calans.value+='0'">
+        <input type="button" value="/"onclick="form1.calans.value+='/'">
+        <input type="button" value="=" onclick="form1.answer.value=eval(form1.answer.value)">
+        <br>
+            <input type="button" value="Clear All" onclick="form1.calans.value=' '" id="clear">
+    </form>
+    </div>
+</body>
+</html>
